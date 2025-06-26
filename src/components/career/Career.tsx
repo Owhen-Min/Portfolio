@@ -17,7 +17,7 @@ export default function Career() {
       </div>
       <div className="mb-8">
         {careers.map((career: CareerEntry) => (
-          <Card>
+          <Card key={career.name}>
             <div className="grid grid-cols-2 gap-10 p-3 sm:grid-cols-[1fr_2fr]">
               <div className="flex flex-col">
                 <h4 className="mb-2 text-lg font-semibold sm:text-xl">{career.name}</h4>
@@ -28,8 +28,10 @@ export default function Career() {
               </div>
               <div className="flex flex-col justify-center pt-1">
                 <ul className="list-disc break-keep">
-                  {career.role.map((role: string) => (
-                    <li className="text-sm leading-7 text-gray-800 sm:text-base">{role}</li>
+                  {career.role.map((role: string, index: number) => (
+                    <li key={index} className="text-sm leading-7 text-gray-800 sm:text-base">
+                      {role}
+                    </li>
                   ))}
                 </ul>
               </div>

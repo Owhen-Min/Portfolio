@@ -6,10 +6,7 @@ export default function Awards() {
       <div className="mb-2 flex flex-row items-center gap-2">
         <h3 className="text-xl sm:text-3xl">Awards</h3>
       </div>
-      <Table.Root
-        className="h-auto w-full overflow-y-auto rounded-2xl break-keep"
-        variant="surface"
-      >
+      <Table.Root className="w-full overflow-y-auto rounded-2xl break-keep" variant="surface">
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeaderCell>수상명</Table.ColumnHeaderCell>
