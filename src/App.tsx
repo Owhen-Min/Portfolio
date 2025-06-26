@@ -6,6 +6,9 @@ import "swiper/css/scrollbar";
 import "@radix-ui/themes/styles.css";
 
 import { Theme } from "@radix-ui/themes";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
 import { Scrollbar, Mousewheel } from "swiper/modules";
 import { Introduction, AboutMe, Careers, Projects, Skills, Contact } from "./components";
@@ -13,6 +16,7 @@ import { Introduction, AboutMe, Careers, Projects, Skills, Contact } from "./com
 function App() {
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleNavigation = (slideIndex: number) => {
     if (swiperRef.current) {
@@ -37,7 +41,8 @@ function App() {
           Portfolio
         </h1>
         <nav>
-          <ul className="flex items-center gap-4">
+          {/* 데스크톱 네비게이션 (sm 이상에서만 표시) */}
+          <ul className="hidden items-center gap-4 sm:flex">
             {navItems.map((item) => (
               <li
                 key={item.label}
@@ -50,8 +55,43 @@ function App() {
               </li>
             ))}
           </ul>
+
+          {/* 모바일 햄버거 메뉴 (sm 미만에서만 표시) */}
+          <div className="sm:hidden">
+            <DropdownMenu.Root open={isOpen} onOpenChange={setIsOpen}>
+              <DropdownMenu.Trigger asChild>
+                <button
+                  className="rounded-md p-2 transition-colors hover:bg-gray-100"
+                  aria-label="메뉴 열기"
+                >
+                  <HamburgerMenuIcon className="h-5 w-5" />
+                </button>
+              </DropdownMenu.Trigger>
+
+              <DropdownMenu.Portal>
+                <DropdownMenu.Content
+                  className="min-w-[200px] rounded-md border bg-white p-2 shadow-lg"
+                  sideOffset={5}
+                >
+                  {navItems.map((item) => (
+                    <DropdownMenu.Item
+                      key={item.label}
+                      className={`cursor-pointer rounded-sm px-3 py-2 text-sm transition-colors outline-none hover:bg-gray-100 focus:bg-gray-100 ${activeSlide === item.index ? "bg-blue-50 font-bold text-blue-600" : ""} `}
+                      onClick={() => {
+                        handleNavigation(item.index);
+                        setIsOpen(false); // 메뉴 선택 후 닫기
+                      }}
+                    >
+                      {item.label}
+                    </DropdownMenu.Item>
+                  ))}
+                </DropdownMenu.Content>
+              </DropdownMenu.Portal>
+            </DropdownMenu.Root>
+          </div>
         </nav>
       </header>
+
       <div className="@container h-[100dvh] pt-15">
         <Swiper
           onSwiper={(swiper) => {
