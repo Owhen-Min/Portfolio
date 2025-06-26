@@ -8,7 +8,7 @@ import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 
 import { Scrollbar, Mousewheel } from "swiper/modules";
-import { Introduction, AboutMe, Career, Projects, Skills, Contact } from "./components";
+import { Introduction, AboutMe, Careers, Projects, Skills, Contact } from "./components";
 
 function App() {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -22,7 +22,7 @@ function App() {
 
   const navItems = [
     { label: "About me", index: 1 },
-    { label: "Career", index: 2 },
+    { label: "Career & Awards", index: 2 },
     { label: "Skills", index: 3 },
     { label: "Projects", index: 4 },
     { label: "Contact", index: 5 },
@@ -81,7 +81,7 @@ function App() {
             <AboutMe />
           </SwiperSlide>
           <SwiperSlide key={"about_me2"}>
-            <Career />
+            <Careers />
           </SwiperSlide>
           <SwiperSlide key={"skills"}>
             <Skills />

@@ -21,7 +21,7 @@ export default function Awards() {
         <Table.Body>
           <Table.Row>
             <Table.RowHeaderCell>
-              삼성소프트웨어AI아카데미 프로젝트 전시발표회 입상
+              삼성소프트웨어AI아카데미 프로젝트 전시발표회 전시부문 입상
             </Table.RowHeaderCell>
             <Table.Cell>삼성전자 주식회사</Table.Cell>
             <Table.Cell>2025.06</Table.Cell>
