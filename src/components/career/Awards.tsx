@@ -32,7 +32,7 @@ export default function Awards() {
           <Table.Row>
             <Table.RowHeaderCell>삼성소프트웨어AI아카데미 특화프로젝트 우수상</Table.RowHeaderCell>
             <Table.Cell>삼성전자 주식회사</Table.Cell>
-            <Table.Cell>2025.05</Table.Cell>
+            <Table.Cell>2025.04</Table.Cell>
           </Table.Row>
 
           <Table.Row>

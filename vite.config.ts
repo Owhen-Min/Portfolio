@@ -6,13 +6,14 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/Portfolio/",
   plugins: [react(), tsconfigPaths(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  server: {
-    host: true,
-  },
+  // server: {
+  //   host: true,
+  // },
 });
