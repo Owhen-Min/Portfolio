@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import type { Project } from "@/types/project";
+import type { Project } from "../../types/project";
 
 import ProjectImage from "./ProjectImage";
 import TechBadge from "./TechBadge";
@@ -44,7 +44,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         ),
       );
       const firstElement = focusableElements[0];
-      const lastElement = focusableElements.at(-1);
+      const lastElement = focusableElements[focusableElements.length - 1];
 
       if (!firstElement || !lastElement) return;
 

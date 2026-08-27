@@ -1,6 +1,6 @@
 import { ArrowUpRight, CalendarDays, Users } from "lucide-react";
 
-import type { Project } from "@/types/project";
+import type { Project } from "../../types/project";
 
 import ProjectImage from "./ProjectImage";
 import TechBadge from "./TechBadge";

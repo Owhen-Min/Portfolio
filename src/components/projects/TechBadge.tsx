@@ -9,7 +9,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import type { ProjectTech } from "@/types/project";
+import type { ProjectTech } from "../../types/project";
 
 const techIcons: Record<string, LucideIcon> = {
   api: Server,

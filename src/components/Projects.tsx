@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 import { projects as projectData } from "@/data/projects.json";
-import type { Project } from "@/types/project";
+import type { Project } from "../types/project";
 
 import ProjectCard from "./projects/ProjectCard";
 import ProjectModal from "./projects/ProjectModal";
