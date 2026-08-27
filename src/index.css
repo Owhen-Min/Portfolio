@@ -153,3 +153,32 @@ font-family: 'NanumSquareAcr'; */
     @apply bg-background text-foreground;
   }
 }
+
+.project-screenshot-swiper {
+  --swiper-navigation-color: #2563eb;
+  --swiper-pagination-color: #2563eb;
+  --swiper-pagination-bullet-inactive-color: #94a3b8;
+  --swiper-navigation-size: 1.5rem;
+}
+
+.project-screenshot-swiper .swiper-button-prev,
+.project-screenshot-swiper .swiper-button-next {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 90%);
+  box-shadow: 0 4px 14px rgb(15 23 42 / 15%);
+}
+
+.project-modal-scroll {
+  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-width: thin;
+}
+
+@media (max-width: 639px) {
+  .project-screenshot-swiper .swiper-button-prev,
+  .project-screenshot-swiper .swiper-button-next {
+    width: 2rem;
+    height: 2rem;
+  }
+}

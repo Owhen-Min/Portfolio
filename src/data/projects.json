@@ -1,0 +1,182 @@
+{
+  "projects": [
+    {
+      "id": "project-one",
+      "name": "프로젝트 이름 01",
+      "summary": "프로젝트의 핵심 가치와 목적을 소개하는 한 줄 설명이 들어갑니다.",
+      "thumbnail": "",
+      "thumbnailAlt": "프로젝트 이름 01 대표 이미지",
+      "featuredTechStack": [
+        { "name": "React", "icon": "react" },
+        { "name": "TypeScript", "icon": "typescript" },
+        { "name": "Tailwind CSS", "icon": "tailwind" }
+      ],
+      "teamSize": 4,
+      "duration": "약 3개월",
+      "details": {
+        "heroImage": "",
+        "heroAlt": "프로젝트 이름 01 상세 대표 이미지",
+        "role": "프론트엔드 개발",
+        "platform": "반응형 웹",
+        "features": ["주요 기능 01", "주요 기능 02", "주요 기능 03"],
+        "techStack": [
+          { "name": "React", "icon": "react" },
+          { "name": "TypeScript", "icon": "typescript" },
+          { "name": "Tailwind CSS", "icon": "tailwind" },
+          { "name": "REST API", "icon": "api" }
+        ],
+        "description": "프로젝트를 시작한 배경, 해결하고자 했던 문제, 구현 과정과 결과를 설명하는 글이 들어갑니다. projects.json의 description 값을 수정해 실제 프로젝트 설명으로 교체할 수 있습니다.",
+        "links": {
+          "github": "",
+          "demo": ""
+        },
+        "screenshots": [
+          {
+            "image": "",
+            "alt": "프로젝트 이름 01 첫 번째 화면",
+            "title": "주요 화면 01",
+            "description": "이 화면에서 구현한 기능과 사용한 기술, 해결한 문제를 설명합니다."
+          },
+          {
+            "image": "",
+            "alt": "프로젝트 이름 01 두 번째 화면",
+            "title": "주요 화면 02",
+            "description": "스크린샷마다 서로 다른 기술적인 설명을 작성할 수 있습니다."
+          },
+          {
+            "image": "",
+            "alt": "프로젝트 이름 01 세 번째 화면",
+            "title": "주요 화면 03",
+            "description": "캐러셀의 이전·다음 버튼이나 스와이프로 화면을 이동할 수 있습니다."
+          }
+        ]
+      }
+    },
+    {
+      "id": "project-two",
+      "name": "프로젝트 이름 02",
+      "summary": "두 번째 프로젝트에 대한 간결한 소개 문구가 들어갑니다.",
+      "thumbnail": "",
+      "thumbnailAlt": "프로젝트 이름 02 대표 이미지",
+      "featuredTechStack": [
+        { "name": "Next.js", "icon": "nextjs" },
+        { "name": "TypeScript", "icon": "typescript" }
+      ],
+      "teamSize": 2,
+      "duration": "약 6주",
+      "details": {
+        "heroImage": "",
+        "heroAlt": "프로젝트 이름 02 상세 대표 이미지",
+        "role": "프론트엔드 개발 및 UI 설계",
+        "platform": "웹",
+        "features": ["주요 기능 01", "주요 기능 02"],
+        "techStack": [
+          { "name": "Next.js", "icon": "nextjs" },
+          { "name": "TypeScript", "icon": "typescript" },
+          { "name": "Database", "icon": "database" }
+        ],
+        "description": "프로젝트의 상세한 개요를 작성하는 영역입니다. 여러 문장으로 작성해도 모달 내부에서 자연스럽게 표시됩니다.",
+        "links": {
+          "github": "",
+          "demo": ""
+        },
+        "screenshots": [
+          {
+            "image": "",
+            "alt": "프로젝트 이름 02 첫 번째 화면",
+            "title": "기능 화면 01",
+            "description": "첫 번째 화면에 관한 기술적인 설명을 작성합니다."
+          },
+          {
+            "image": "",
+            "alt": "프로젝트 이름 02 두 번째 화면",
+            "title": "기능 화면 02",
+            "description": "두 번째 화면에 관한 별도의 설명을 작성합니다."
+          }
+        ]
+      }
+    },
+    {
+      "id": "project-three",
+      "name": "프로젝트 이름 03",
+      "summary": "세 번째 프로젝트의 목적과 결과를 요약하는 문구가 들어갑니다.",
+      "thumbnail": "",
+      "thumbnailAlt": "프로젝트 이름 03 대표 이미지",
+      "featuredTechStack": [
+        { "name": "React", "icon": "react" },
+        { "name": "JavaScript", "icon": "javascript" }
+      ],
+      "teamSize": 1,
+      "duration": "약 1개월",
+      "details": {
+        "heroImage": "",
+        "heroAlt": "프로젝트 이름 03 상세 대표 이미지",
+        "role": "기획 및 전체 개발",
+        "platform": "웹",
+        "features": ["주요 기능 01", "주요 기능 02"],
+        "techStack": [
+          { "name": "React", "icon": "react" },
+          { "name": "JavaScript", "icon": "javascript" },
+          { "name": "CSS", "icon": "css" }
+        ],
+        "description": "개인 프로젝트의 기획 의도와 기술적인 도전, 개선 결과 등을 자유롭게 설명할 수 있습니다.",
+        "links": {
+          "github": "",
+          "demo": ""
+        },
+        "screenshots": [
+          {
+            "image": "",
+            "alt": "프로젝트 이름 03 첫 번째 화면",
+            "title": "핵심 기능",
+            "description": "핵심 기능을 구현한 방법과 고려한 사항을 작성합니다."
+          }
+        ]
+      }
+    },
+    {
+      "id": "project-four",
+      "name": "프로젝트 이름 04",
+      "summary": "프로젝트 카드가 늘어났을 때 내부 스크롤을 확인하기 위한 예시입니다.",
+      "thumbnail": "",
+      "thumbnailAlt": "프로젝트 이름 04 대표 이미지",
+      "featuredTechStack": [
+        { "name": "Python", "icon": "python" },
+        { "name": "Database", "icon": "database" }
+      ],
+      "teamSize": 3,
+      "duration": "약 2개월",
+      "details": {
+        "heroImage": "",
+        "heroAlt": "프로젝트 이름 04 상세 대표 이미지",
+        "role": "백엔드 개발",
+        "platform": "웹 서비스",
+        "features": ["주요 기능 01", "주요 기능 02", "주요 기능 03"],
+        "techStack": [
+          { "name": "Python", "icon": "python" },
+          { "name": "Database", "icon": "database" },
+          { "name": "REST API", "icon": "api" }
+        ],
+        "description": "네 번째 프로젝트에 대한 상세 설명 placeholder입니다. 프로젝트 수는 JSON 배열에 항목을 추가하는 방식으로 늘릴 수 있습니다.",
+        "links": {
+          "github": "",
+          "demo": ""
+        },
+        "screenshots": [
+          {
+            "image": "",
+            "alt": "프로젝트 이름 04 첫 번째 화면",
+            "title": "서비스 화면",
+            "description": "서비스 화면에서 처리되는 데이터 흐름이나 구현 내용을 설명합니다."
+          },
+          {
+            "image": "",
+            "alt": "프로젝트 이름 04 두 번째 화면",
+            "title": "관리 화면",
+            "description": "관리 기능의 구조와 기술적인 의사결정을 설명합니다."
+          }
+        ]
+      }
+    }
+  ]
+}

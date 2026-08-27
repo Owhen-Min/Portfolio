@@ -6,7 +6,6 @@ import "swiper/css/scrollbar";
 import "@radix-ui/themes/styles.css";
 
 import { Theme } from "@radix-ui/themes";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
