@@ -15,7 +15,7 @@ export default function Career() {
       <div className="mb-2 flex flex-row items-center gap-2">
         <h3 className="text-xl sm:text-3xl">Career</h3>
       </div>
-      <div className="mb-8">
+      <div className="mb-8 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-10">
         {careers.map((career: CareerEntry) => (
           <Card key={career.name}>
             <div className="grid grid-cols-2 gap-10 p-3 sm:grid-cols-[1fr_2fr]">
