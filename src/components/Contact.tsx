@@ -2,7 +2,7 @@ import github from "@/assets/github.webp";
 
 export default function Contact() {
   return (
-    <section className="flex flex-col justify-center items-center contact-section w-full h-[calc(100%-40px)] bg-yellow-100">
+    <section className="contact-section flex w-full flex-1 flex-col items-center justify-center bg-yellow-100">
       <div className="max-w-100 text-start">
         <h2>Contact</h2>
         <div className="contact-info">
@@ -12,7 +12,7 @@ export default function Contact() {
           </div>
           <div className="contact-item flex flex-row gap-2 whitespace-nowrap">
             <a href="https://github.com/Owhen-Min" className="w-full">
-              <img src={github} alt="github-icon" className="w-[22px] h-5 inline" />
+              <img src={github} alt="github-icon" className="inline h-5 w-[22px]" />
               <span>GitHub</span>
             </a>
           </div>

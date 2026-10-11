@@ -24,7 +24,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="flex h-full w-full flex-col items-start justify-center gap-y-2 bg-pink-100 p-5 text-start md:p-10 lg:p-20"
+      className="snap-section flex w-full flex-col items-start justify-start gap-y-2 bg-pink-100 p-5 text-start md:p-10 lg:p-20"
     >
       <div className="flex justify-center gap-1">
         <h2 className="mb-2 gap-5 text-start text-2xl underline underline-offset-8 sm:mb-5 sm:text-4xl">
@@ -62,7 +62,7 @@ export default function Skills() {
                   </div>
                 </TooltipTrigger>
                 <TooltipContent side="bottom">
-                  <ul className="max-w-[250px] list-disc pl-4 text-sm leading-10 break-keep">
+                  <ul className="max-w-[300px] list-disc pl-4 text-sm leading-10 break-keep md:max-w-[500px]">
                     {tech.description.map((d: string, idx: number) => (
                       <li key={idx}>{d}</li>
                     ))}

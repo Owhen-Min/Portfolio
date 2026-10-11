@@ -154,6 +154,26 @@ font-family: 'NanumSquareAcr'; */
   }
 }
 
+/* 헤더 높이(3.75rem)만큼 앵커 이동 지점을 내려 고정 헤더에 가려지지 않게 한다. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 3.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/*
+ * 섹션 전환 판정은 useSectionSnap이 담당한다. CSS scroll-snap은 임계값을 지정할 수
+ * 없어(mandatory는 항상 가장 가까운 지점 기준) 여기서는 높이만 정의한다.
+ */
+.snap-section {
+  min-height: calc(100dvh - 3.75rem);
+}
+
 .project-screenshot-swiper {
   --swiper-navigation-color: #2563eb;
   --swiper-pagination-color: #2563eb;
