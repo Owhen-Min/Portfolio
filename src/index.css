@@ -179,6 +179,25 @@ html {
   --swiper-pagination-color: #2563eb;
   --swiper-pagination-bullet-inactive-color: #94a3b8;
   --swiper-navigation-size: 1.5rem;
+  /* 페이지네이션을 슬라이드 위쪽 여백에 배치하기 위한 공간 */
+  padding-top: 2.25rem;
+}
+
+/*
+ * 총 장수를 한눈에 보여줘야 하므로 점 인디케이터를 슬라이드 상단으로 올린다.
+ * swiper 기본 규칙(.swiper-horizontal > .swiper-pagination-bullets)보다
+ * 우선하도록 선택자를 한 단계 더 좁게 잡는다.
+ */
+.project-screenshot-swiper .swiper-pagination.swiper-pagination-bullets {
+  top: 0.75rem;
+  bottom: auto;
+  line-height: 0;
+}
+
+.project-screenshot-swiper .swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  opacity: 1;
 }
 
 .project-screenshot-swiper .swiper-button-prev,
@@ -193,6 +212,16 @@ html {
 .project-modal-scroll {
   scrollbar-color: #cbd5e1 transparent;
   scrollbar-width: thin;
+}
+
+/* lg+: 행 높이는 스펙 칸이 정하고, 썸네일은 그 높이로 1:1 너비를 계산한다. */
+@media (min-width: 1024px) {
+  .project-hero-thumb {
+    width: auto;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+  }
 }
 
 @media (max-width: 639px) {

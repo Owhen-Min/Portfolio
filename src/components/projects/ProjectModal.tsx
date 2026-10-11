@@ -40,8 +40,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
       const focusableElements = Array.from(
         dialogRef.current.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
-        ),
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
       );
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
@@ -103,36 +103,54 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         <div className="project-modal-scroll flex-1 overflow-y-auto overscroll-contain">
           <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-8 sm:py-10 lg:px-12">
-            <div className="aspect-[16/9] overflow-hidden rounded-xl border border-slate-200 sm:rounded-2xl">
-              <ProjectImage
-                src={project.details.heroImage}
-                alt={project.details.heroAlt}
-                label="프로젝트 상세 대표 이미지"
-              />
-            </div>
-
-            <section aria-labelledby={`${titleId}-specs`} className="mt-10">
-              <h3 id={`${titleId}-specs`} className="text-xl font-bold text-slate-900 sm:text-2xl">
-                프로젝트 스펙
-              </h3>
-              <dl className="mt-5 grid grid-cols-1 overflow-hidden rounded-xl border border-slate-200 sm:grid-cols-2">
-                <SpecItem term="진행 기간" description={project.duration} />
-                <SpecItem term="참여 인원" description={`${project.teamSize}인`} />
-                <SpecItem term="담당 역할" description={project.details.role} />
-                <SpecItem term="플랫폼" description={project.details.platform} />
-              </dl>
-
-              <div className="mt-6">
-                <h4 className="text-sm font-bold tracking-wide text-slate-500 uppercase">
-                  상세 기술 스택
-                </h4>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {project.details.techStack.map((tech) => (
-                    <TechBadge key={`${project.id}-detail-${tech.name}`} tech={tech} />
-                  ))}
+            <div className="flex flex-col md:gap-20 lg:grid lg:grid-cols-[auto_minmax(0,1fr)] lg:items-stretch">
+              <div className="project-hero-thumb relative aspect-square w-full overflow-hidden rounded-xl border border-slate-200 sm:rounded-2xl">
+                <div className="absolute inset-0">
+                  <ProjectImage
+                    src={project.details.heroImage}
+                    alt={project.details.heroAlt}
+                    label="프로젝트 상세 대표 이미지"
+                  />
                 </div>
               </div>
 
+              <section aria-label="프로젝트 스펙" className="mt-10 min-w-0 flex-1 lg:mt-0">
+                <dl className="overflow-hidden rounded-xl border border-slate-200">
+                  <SpecItem term="진행 기간" description={project.duration} />
+                  <SpecItem term="참여 인원" description={`${project.teamSize}인`} />
+                  <SpecItem term="담당 역할" description={project.details.role} />
+                  <SpecItem term="플랫폼" description={project.details.platform} />
+                </dl>
+                {/* 상세 기술 스택 */}
+                <div className="mt-6">
+                  <h4 className="text-sm font-bold tracking-wide text-slate-500 uppercase">
+                    Tech Stack
+                  </h4>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {project.details.techStack.map((tech) => (
+                      <TechBadge key={`${project.id}-detail-${tech.name}`} tech={tech} />
+                    ))}
+                  </div>
+                </div>
+                {/* 프로젝트 링크 */}
+                {(project.details.links.github || project.details.links.demo) && (
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {project.details.links.github && (
+                      <ProjectLink href={project.details.links.github} label="GitHub">
+                        <Github aria-hidden="true" className="size-4" />
+                      </ProjectLink>
+                    )}
+                    {project.details.links.demo && (
+                      <ProjectLink href={project.details.links.demo} label="배포 사이트">
+                        <ExternalLink aria-hidden="true" className="size-4" />
+                      </ProjectLink>
+                    )}
+                  </div>
+                )}
+              </section>
+            </div>
+
+            <section aria-label="프로젝트 상세 정보" className="pt-10">
               <div className="mt-6">
                 <h4 className="text-sm font-bold tracking-wide text-slate-500 uppercase">
                   주요 기능
@@ -140,27 +158,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-700 sm:grid-cols-2">
                   {project.details.features.map((feature) => (
                     <li key={feature} className="flex gap-2">
-                      <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-blue-500" />
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 size-1.5 shrink-0 rounded-full bg-blue-500"
+                      />
                       {feature}
                     </li>
                   ))}
                 </ul>
               </div>
-
-              {(project.details.links.github || project.details.links.demo) && (
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {project.details.links.github && (
-                    <ProjectLink href={project.details.links.github} label="GitHub">
-                      <Github aria-hidden="true" className="size-4" />
-                    </ProjectLink>
-                  )}
-                  {project.details.links.demo && (
-                    <ProjectLink href={project.details.links.demo} label="배포 사이트">
-                      <ExternalLink aria-hidden="true" className="size-4" />
-                    </ProjectLink>
-                  )}
-                </div>
-              )}
             </section>
 
             <section aria-labelledby={`${titleId}-overview`} className="mt-12">
@@ -172,7 +178,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </h3>
               <p
                 id={descriptionId}
-                className="mt-4 whitespace-pre-line text-sm leading-7 text-slate-700 sm:text-base sm:leading-8"
+                className="mt-4 text-sm leading-7 whitespace-pre-line text-slate-700 sm:text-base sm:leading-8"
               >
                 {project.details.description}
               </p>
@@ -183,15 +189,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 id={`${titleId}-screenshots`}
                 className="text-xl font-bold text-slate-900 sm:text-2xl"
               >
-                주요 화면
+                주요 개발 내용 및 화면
               </h3>
-              <p className="mt-2 text-sm text-slate-500">
-                화면을 넘겨 각 기능의 구현 내용을 확인할 수 있습니다.
-              </p>
 
               <Swiper
                 key={project.id}
-                className="project-screenshot-swiper mt-5 rounded-xl border border-slate-200 bg-slate-50 sm:rounded-2xl"
+                className="project-screenshot-swiper mt-1 rounded-xl border border-slate-200 bg-slate-50 sm:rounded-2xl"
                 modules={[A11y, Keyboard, Navigation, Pagination]}
                 navigation
                 pagination={{ clickable: true }}
@@ -203,14 +206,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.details.screenshots.map((screenshot, index) => (
                   <SwiperSlide key={`${project.id}-screenshot-${index}`}>
                     <div>
-                      <div className="aspect-[16/9] overflow-hidden border-b border-slate-200 bg-white">
-                        <ProjectImage
-                          src={screenshot.image}
-                          alt={screenshot.alt}
-                          label={`스크린샷 ${index + 1}`}
-                        />
-                      </div>
-                      <div className="min-h-36 bg-white px-5 pt-5 pb-12 sm:min-h-40 sm:px-8 sm:pt-7">
+                      <div className="min-h-16 bg-white px-5 pt-5 sm:min-h-20 sm:px-8 sm:pt-7">
                         <p className="text-xs font-semibold tracking-widest text-blue-600 uppercase">
                           Screen {String(index + 1).padStart(2, "0")}
                         </p>
@@ -221,6 +217,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                           {screenshot.description}
                         </p>
                       </div>
+                      <div className="aspect-[16/9] overflow-hidden border-b border-slate-200 bg-white">
+                        <ProjectImage
+                          src={screenshot.image}
+                          alt={screenshot.alt}
+                          label={`스크린샷 ${index + 1}`}
+                        />
+                      </div>
                     </div>
                   </SwiperSlide>
                 ))}
@@ -230,13 +233,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
       </div>
     </div>,
-    document.body,
+    document.body
   );
 }
 
 function SpecItem({ term, description }: { term: string; description: string }) {
   return (
-    <div className="border-b border-slate-200 p-4 last:border-b-0 sm:border-r sm:p-5 sm:nth-[3]:border-b-0 sm:nth-[4]:border-r-0 sm:nth-[4]:border-b-0">
+    <div className="border-b border-slate-200 p-4 last:border-b-0 sm:p-5">
       <dt className="text-xs font-bold tracking-wide text-slate-500 uppercase">{term}</dt>
       <dd className="mt-1 text-sm font-semibold text-slate-900 sm:text-base">{description}</dd>
     </div>
