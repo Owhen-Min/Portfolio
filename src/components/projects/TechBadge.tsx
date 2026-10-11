@@ -1,10 +1,17 @@
 import {
+  ArrowLeftRight,
   Atom,
   Braces,
+  ChartColumn,
   Code2,
   Database,
   FileJson,
+  Leaf,
+  PawPrint,
+  RadioTower,
+  RefreshCw,
   Server,
+  Smartphone,
   Wind,
   type LucideIcon,
 } from "lucide-react";
@@ -13,14 +20,22 @@ import type { ProjectTech } from "../../types/project";
 
 const techIcons: Record<string, LucideIcon> = {
   api: Server,
+  chartjs: ChartColumn,
   css: Braces,
   database: Database,
   javascript: FileJson,
+  nativewind: Wind,
   nextjs: Code2,
   python: Code2,
   react: Atom,
+  reactnative: Smartphone,
+  reactquery: RefreshCw,
+  serversentevent: RadioTower,
+  springboot: Leaf,
   tailwind: Wind,
   typescript: Braces,
+  websocket: ArrowLeftRight,
+  zustand: PawPrint,
 };
 
 interface TechBadgeProps {

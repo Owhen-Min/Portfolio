@@ -1,4 +1,4 @@
-import { ArrowUpRight, CalendarDays, Users } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Users, Award } from "lucide-react";
 
 import type { Project } from "../../types/project";
 
@@ -13,13 +13,15 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
   return (
     <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+      {/* button은 내용물을 세로 중앙 정렬하는 기본 동작이 있어, 카드가 행 높이에 맞춰
+          늘어나면 썸네일 위에 빈 공간이 생긴다. flex-col로 위쪽 정렬을 고정한다. */}
       <button
         type="button"
-        className="block h-full w-full cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-blue-600"
+        className="flex h-full w-full cursor-pointer flex-col text-left focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-blue-600"
         aria-haspopup="dialog"
         onClick={() => onSelect(project)}
       >
-        <div className="aspect-[16/8] overflow-hidden border-b border-slate-100">
+        <div className="aspect-[16/8] shrink-0 overflow-hidden border-b border-slate-100">
           <ProjectImage
             src={project.thumbnail}
             alt={project.thumbnailAlt}
@@ -59,6 +61,13 @@ export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
               <dt className="sr-only">진행 기간</dt>
               <dd>{project.duration}</dd>
             </div>
+            {project?.award && (
+              <div className="flex items-center gap-2">
+                <Award aria-hidden="true" className="size-4 text-slate-400" />
+                <dt className="sr-only">수상 내역</dt>
+                <dd>{project?.award}</dd>
+              </div>
+            )}
           </dl>
         </div>
       </button>

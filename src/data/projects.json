@@ -1,33 +1,41 @@
 {
   "projects": [
     {
-      "id": "project-one",
-      "name": "프로젝트 이름 01",
-      "summary": "프로젝트의 핵심 가치와 목적을 소개하는 한 줄 설명이 들어갑니다.",
+      "id": "vibe-quest",
+      "name": "Vibe Quest",
+      "summary": "게이미피케이션을 통해 하루의 감정을 기록하고, 습관을 형성하는 앱",
       "thumbnail": "",
-      "thumbnailAlt": "프로젝트 이름 01 대표 이미지",
+      "thumbnailAlt": "Vibe Quest 대표 이미지",
       "featuredTechStack": [
-        { "name": "React", "icon": "react" },
+        { "name": "React-native", "icon": "reactnative" },
         { "name": "TypeScript", "icon": "typescript" },
-        { "name": "Tailwind CSS", "icon": "tailwind" }
+        { "name": "NativeWind", "icon": "nativewind" },
+        { "name": "Zustand", "icon": "zustand" }
       ],
-      "teamSize": 4,
-      "duration": "약 3개월",
+      "teamSize": 3,
+      "duration": "26.7 ~ ",
       "details": {
-        "heroImage": "",
-        "heroAlt": "프로젝트 이름 01 상세 대표 이미지",
-        "role": "프론트엔드 개발",
+        "heroImage": "/Portfolio/projects/Memozy/01_thumbnail.png",
+        "heroAlt": "Memozy 썸네일",
+        "role": "프론트엔드 리드, 프론트엔드 개발, 발표자",
         "platform": "반응형 웹",
-        "features": ["주요 기능 01", "주요 기능 02", "주요 기능 03"],
+        "features": [
+          "유저가 웹페이지에서 원하는 내용을 크롬 익스텐션을 통해 아카이빙합니다.",
+          "유저는 아카이빙한 내용을 기반으로 지식을 요약하고, 문제를 생성합니다.",
+          "유저는 자신이 원하는 지식에 대한 문제를 풀고, 피드백을 받습니다.",
+          "유저는 자신이 저장한 내용을 공유 후 함께 문제를 풀 수 있습니다."
+        ],
         "techStack": [
           { "name": "React", "icon": "react" },
-          { "name": "TypeScript", "icon": "typescript" },
+          { "name": "React Query", "icon": "reactquery" },
           { "name": "Tailwind CSS", "icon": "tailwind" },
-          { "name": "REST API", "icon": "api" }
+          { "name": "WebSocket", "icon": "websocket" },
+          { "name": "Zustand", "icon": "zustand" },
+          { "name": "Spring Boot", "icon": "springboot" }
         ],
         "description": "프로젝트를 시작한 배경, 해결하고자 했던 문제, 구현 과정과 결과를 설명하는 글이 들어갑니다. projects.json의 description 값을 수정해 실제 프로젝트 설명으로 교체할 수 있습니다.",
         "links": {
-          "github": "",
+          "github": "https://github.com/Owhen-Min/Memozy",
           "demo": ""
         },
         "screenshots": [
@@ -53,17 +61,19 @@
       }
     },
     {
-      "id": "project-two",
-      "name": "프로젝트 이름 02",
-      "summary": "두 번째 프로젝트에 대한 간결한 소개 문구가 들어갑니다.",
-      "thumbnail": "",
-      "thumbnailAlt": "프로젝트 이름 02 대표 이미지",
+      "id": "smoking-map",
+      "name": "피고갈래",
+      "summary": "공공데이터 + 유저 제보 기반으로 흡연 가능 구역을 지도에 표시하는 서비스",
+      "thumbnail": "/Portfolio/projects/Smoking_Map/thumbnail.png",
+      "thumbnailAlt": "Smoking Map 대표 이미지",
       "featuredTechStack": [
         { "name": "Next.js", "icon": "nextjs" },
-        { "name": "TypeScript", "icon": "typescript" }
+        { "name": "TypeScript", "icon": "typescript" },
+        { "name": "Tailwind CSS", "icon": "tailwind" },
+        { "name": "Supabase", "icon": "database" }
       ],
-      "teamSize": 2,
-      "duration": "약 6주",
+      "teamSize": 1,
+      "duration": "26.4 ~ ",
       "details": {
         "heroImage": "",
         "heroAlt": "프로젝트 이름 02 상세 대표 이미지",
@@ -77,8 +87,8 @@
         ],
         "description": "프로젝트의 상세한 개요를 작성하는 영역입니다. 여러 문장으로 작성해도 모달 내부에서 자연스럽게 표시됩니다.",
         "links": {
-          "github": "",
-          "demo": ""
+          "github": "https://github.com/Owhen-Min/Smoking_Map",
+          "demo": "https://smoking-map-delta.vercel.app/"
         },
         "screenshots": [
           {
@@ -97,83 +107,117 @@
       }
     },
     {
-      "id": "project-three",
-      "name": "프로젝트 이름 03",
-      "summary": "세 번째 프로젝트의 목적과 결과를 요약하는 문구가 들어갑니다.",
-      "thumbnail": "",
-      "thumbnailAlt": "프로젝트 이름 03 대표 이미지",
+      "id": "memozy",
+      "name": "Memozy",
+      "summary": "방대한 정보를 요약하고, 문제로 풀며 지식을 효과적으로 학습하고 정리하는 플랫폼",
+      "thumbnail": "/Portfolio/projects/Memozy/01_thumbnail.png",
+      "thumbnailAlt": "Memozy 대표 이미지",
       "featuredTechStack": [
         { "name": "React", "icon": "react" },
-        { "name": "JavaScript", "icon": "javascript" }
+        { "name": "TypeScript", "icon": "typescript" },
+        { "name": "WebSocket", "icon": "websocket" },
+        { "name": "Zustand", "icon": "zustand" }
       ],
-      "teamSize": 1,
-      "duration": "약 1개월",
+      "teamSize": 6,
+      "duration": "25.4 ~ 25.5",
+      "award": "SSAFY 프로젝트 전시발표회 전시부문 입상",
       "details": {
-        "heroImage": "",
-        "heroAlt": "프로젝트 이름 03 상세 대표 이미지",
-        "role": "기획 및 전체 개발",
-        "platform": "웹",
-        "features": ["주요 기능 01", "주요 기능 02"],
+        "heroImage": "/Portfolio/projects/Memozy/02_thumbnail.png",
+        "heroAlt": "Memozy 썸네일",
+        "role": "프론트엔드 리드, 프론트엔드 개발, 발표자",
+        "platform": "반응형 웹",
+        "features": [
+          "유저가 웹페이지에서 원하는 내용을 크롬 익스텐션을 통해 아카이빙합니다.",
+          "유저는 아카이빙한 내용을 기반으로 지식을 요약하고, 문제를 생성합니다.",
+          "유저는 자신이 원하는 지식에 대한 문제를 풀고, 피드백을 받습니다.",
+          "유저는 자신이 저장한 내용을 공유 후 함께 문제를 풀 수 있습니다."
+        ],
         "techStack": [
           { "name": "React", "icon": "react" },
-          { "name": "JavaScript", "icon": "javascript" },
-          { "name": "CSS", "icon": "css" }
+          { "name": "React Query", "icon": "reactquery" },
+          { "name": "Tailwind CSS", "icon": "tailwind" },
+          { "name": "WebSocket", "icon": "websocket" },
+          { "name": "Zustand", "icon": "zustand" },
+          { "name": "Spring Boot", "icon": "springboot" }
         ],
-        "description": "개인 프로젝트의 기획 의도와 기술적인 도전, 개선 결과 등을 자유롭게 설명할 수 있습니다.",
+        "description": "개발하는 과정에서 한번 찾아보고 휘발되는 내용들이 많아, 정리하여 공부하고 싶은 마음에서 시작한 프로젝트입니다. 아카이빙을 담당하는 크롬 익스텐션과 아카이빙한 내용들을 다같이 푸는 멀티 퀴즈쇼를 담당하여 개발하였습니다.",
         "links": {
-          "github": "",
+          "github": "https://github.com/Owhen-Min/Memozy",
           "demo": ""
         },
         "screenshots": [
           {
-            "image": "",
-            "alt": "프로젝트 이름 03 첫 번째 화면",
-            "title": "핵심 기능",
-            "description": "핵심 기능을 구현한 방법과 고려한 사항을 작성합니다."
+            "image": "/Portfolio/projects/Memozy/image.png",
+            "alt": "Memozy 익스텐션 첫번째 화면",
+            "title": "익스텐션",
+            "description": "크롬 익스텐션을 통해 내용을 아카이빙합니다. 휴리스틱 기반 엔진으로 주요 내용만 추출하여, Markdown으로 변환함으로써 평균 95%의 토큰양을 줄이고, 비용을 절감하면서 응답속도를 늘렸습니다."
+          },
+          {
+            "image": "/Portfolio/projects/Memozy/image3.png",
+            "alt": "Memozy 웹 멀티퀴즈쇼 첫 번째 화면",
+            "title": "멀티퀴즈쇼 대기화면",
+            "description": "웹소켓 기반의 다중 사용자 접속을 구현하였습니다. 기획 단계에서 단독 퀴즈쇼 컴포넌트를 활용하기로 하여 시간을 절감할 수 있었으며, 하나의 서버에 30개의 접속을 활성화하여 부하테스트를 진행하였으나, 정상적으로 진행되는 것을 확인했습니다."
+          },
+          {
+            "image": "/Portfolio/projects/Memozy/image4.png",
+            "alt": "Memozy 웹 멀티퀴즈쇼 두 번째 화면",
+            "title": "멀티퀴즈쇼 퀴즈 화면",
+            "description": "문제를 푸는 과정에서 네트워크 환경이 안 좋아질 수 있는 것을 항상 염두해두며, Zustand 및 Zustand Persist 미들웨어를 활용하여 상태를 관리하였습니다."
           }
         ]
       }
     },
     {
-      "id": "project-four",
-      "name": "프로젝트 이름 04",
-      "summary": "프로젝트 카드가 늘어났을 때 내부 스크롤을 확인하기 위한 예시입니다.",
-      "thumbnail": "",
-      "thumbnailAlt": "프로젝트 이름 04 대표 이미지",
+      "id": "MusicNote",
+      "name": "MusicNote",
+      "summary": "듣는 음악을 기반으로 사용자의 성향을 분석하고, 성향에 맞는 작품을 추천하는 서비스",
+      "thumbnail": "/Portfolio/projects/MusicNote/01_thumbnail.png",
+      "thumbnailAlt": "MusicNote 대표 이미지",
       "featuredTechStack": [
-        { "name": "Python", "icon": "python" },
-        { "name": "Database", "icon": "database" }
+        { "name": "React", "icon": "react" },
+        { "name": "TypeScript", "icon": "typescript" },
+        { "name": "React Query", "icon": "reactquery" },
+        { "name": "Tailwind CSS", "icon": "tailwind" },
+        { "name": "Zustand", "icon": "zustand" },
+        { "name": "Chart.js", "icon": "chartjs" }
       ],
-      "teamSize": 3,
-      "duration": "약 2개월",
+      "teamSize": 6,
+      "duration": "25.4 ~ 25.5",
+      "award": "SSAFY 특화 프로젝트 우수상",
       "details": {
-        "heroImage": "",
-        "heroAlt": "프로젝트 이름 04 상세 대표 이미지",
-        "role": "백엔드 개발",
-        "platform": "웹 서비스",
-        "features": ["주요 기능 01", "주요 기능 02", "주요 기능 03"],
+        "heroImage": "/Portfolio/projects/MusicNote/02_heroimage.png",
+        "heroAlt": "프로젝트 이름 02 상세 대표 이미지",
+        "role": "프론트엔드 개발 및 UI 설계",
+        "platform": "웹",
+        "features": ["주요 기능 01", "주요 기능 02"],
         "techStack": [
-          { "name": "Python", "icon": "python" },
-          { "name": "Database", "icon": "database" },
-          { "name": "REST API", "icon": "api" }
+          { "name": "Next.js", "icon": "nextjs" },
+          { "name": "TypeScript", "icon": "typescript" },
+          { "name": "Database", "icon": "database" }
         ],
-        "description": "네 번째 프로젝트에 대한 상세 설명 placeholder입니다. 프로젝트 수는 JSON 배열에 항목을 추가하는 방식으로 늘릴 수 있습니다.",
+        "description": "프로젝트의 상세한 개요를 작성하는 영역입니다. 여러 문장으로 작성해도 모달 내부에서 자연스럽게 표시됩니다.",
         "links": {
-          "github": "",
+          "github": "https://github.com/Owhen-Min/MusicNote",
           "demo": ""
         },
         "screenshots": [
           {
-            "image": "",
-            "alt": "프로젝트 이름 04 첫 번째 화면",
-            "title": "서비스 화면",
-            "description": "서비스 화면에서 처리되는 데이터 흐름이나 구현 내용을 설명합니다."
+            "image": "/Portfolio/projects/MusicNote/03_image.png",
+            "alt": "프로젝트 이름 02 첫 번째 화면",
+            "title": "기능 화면 01",
+            "description": "첫 번째 화면에 관한 기술적인 설명을 작성합니다."
           },
           {
-            "image": "",
-            "alt": "프로젝트 이름 04 두 번째 화면",
-            "title": "관리 화면",
-            "description": "관리 기능의 구조와 기술적인 의사결정을 설명합니다."
+            "image": "/Portfolio/projects/MusicNote/04_image.png",
+            "alt": "프로젝트 이름 02 두 번째 화면",
+            "title": "기능 화면 02",
+            "description": "두 번째 화면에 관한 별도의 설명을 작성합니다."
+          },
+          {
+            "image": "/Portfolio/projects/MusicNote/05_image.png",
+            "alt": "프로젝트 이름 02 두 번째 화면",
+            "title": "기능 화면 02",
+            "description": "두 번째 화면에 관한 별도의 설명을 작성합니다."
           }
         ]
       }

@@ -36,5 +36,6 @@ export interface Project {
   featuredTechStack: ProjectTech[];
   teamSize: number;
   duration: string;
+  award?: string;
   details: ProjectDetails;
 }
