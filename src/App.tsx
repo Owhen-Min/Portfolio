@@ -110,7 +110,7 @@ function App() {
       </header>
 
       <main className="w-full pt-15">
-        <Introduction />
+        <Introduction onNavigate={handleNavigation} />
         <AboutMe />
         <Careers />
         <Skills />
