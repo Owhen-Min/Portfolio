@@ -11,25 +11,25 @@ interface CareerEntry {
 
 export default function Career() {
   return (
-    <>
-      <div className="mb-2 flex flex-row items-center gap-2">
-        <h3 className="text-xl sm:text-3xl">Career</h3>
+    <div className="section-group">
+      <div className="flex flex-row items-center gap-2">
+        <h2 className="section-title">Career</h2>
       </div>
-      <div className="mb-8 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-10">
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-7">
         {careers.map((career: CareerEntry) => (
           <Card key={career.name}>
-            <div className="grid grid-cols-2 gap-10 p-3 sm:grid-cols-[1fr_2fr]">
-              <div className="flex flex-col">
-                <h4 className="mb-2 text-lg font-semibold sm:text-xl">{career.name}</h4>
-                <p className="text-gray-600">
+            <div className="grid grid-cols-1 gap-4 p-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-6 lg:grid-cols-1 xl:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+              <div className="flex min-w-0 flex-col">
+                <h3 className="section-subtitle mb-2 break-words">{career.name}</h3>
+                <p className="section-meta">
                   {career.entry_month} ~ {career.out_month}
                 </p>
-                <p className="text-gray-600">{career.rank}</p>
+                <p className="section-meta">{career.rank}</p>
               </div>
               <div className="flex flex-col justify-center pt-1">
-                <ul className="list-disc break-keep">
+                <ul className="list-disc space-y-2 pl-5 break-keep">
                   {career.role.map((role: string, index: number) => (
-                    <li key={index} className="text-sm leading-7 text-gray-800 sm:text-base">
+                    <li key={index} className="section-body">
                       {role}
                     </li>
                   ))}
@@ -39,6 +39,6 @@ export default function Career() {
           </Card>
         ))}
       </div>
-    </>
+    </div>
   );
 }

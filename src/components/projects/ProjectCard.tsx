@@ -33,7 +33,7 @@ export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
         <div className="p-5 sm:p-6">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">{project.name}</h3>
+              <h3 className="section-subtitle">{project.name}</h3>
               <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-600">
                 {project.summary}
               </p>
