@@ -1,66 +1,6 @@
 {
   "projects": [
     {
-      "id": "vibe-quest",
-      "name": "Vibe Quest",
-      "summary": "게이미피케이션을 통해 하루의 감정을 기록하고, 습관을 형성하는 앱",
-      "thumbnail": "",
-      "thumbnailAlt": "Vibe Quest 대표 이미지",
-      "featuredTechStack": [
-        { "name": "React-native", "icon": "reactnative" },
-        { "name": "TypeScript", "icon": "typescript" },
-        { "name": "NativeWind", "icon": "nativewind" },
-        { "name": "Zustand", "icon": "zustand" }
-      ],
-      "teamSize": 3,
-      "duration": "26.7 ~ ",
-      "details": {
-        "heroImage": "/Portfolio/projects/Memozy/01_thumbnail.png",
-        "heroAlt": "Memozy 썸네일",
-        "role": "프론트엔드 리드, 프론트엔드 개발, 발표자",
-        "platform": "반응형 웹",
-        "features": [
-          "유저가 웹페이지에서 원하는 내용을 크롬 익스텐션을 통해 아카이빙합니다.",
-          "유저는 아카이빙한 내용을 기반으로 지식을 요약하고, 문제를 생성합니다.",
-          "유저는 자신이 원하는 지식에 대한 문제를 풀고, 피드백을 받습니다.",
-          "유저는 자신이 저장한 내용을 공유 후 함께 문제를 풀 수 있습니다."
-        ],
-        "techStack": [
-          { "name": "React", "icon": "react" },
-          { "name": "React Query", "icon": "reactquery" },
-          { "name": "Tailwind CSS", "icon": "tailwind" },
-          { "name": "WebSocket", "icon": "websocket" },
-          { "name": "Zustand", "icon": "zustand" },
-          { "name": "Spring Boot", "icon": "springboot" }
-        ],
-        "description": "프로젝트를 시작한 배경, 해결하고자 했던 문제, 구현 과정과 결과를 설명하는 글이 들어갑니다. projects.json의 description 값을 수정해 실제 프로젝트 설명으로 교체할 수 있습니다.",
-        "links": {
-          "github": "https://github.com/Owhen-Min/Memozy",
-          "demo": ""
-        },
-        "screenshots": [
-          {
-            "image": "",
-            "alt": "프로젝트 이름 01 첫 번째 화면",
-            "title": "주요 화면 01",
-            "description": "이 화면에서 구현한 기능과 사용한 기술, 해결한 문제를 설명합니다."
-          },
-          {
-            "image": "",
-            "alt": "프로젝트 이름 01 두 번째 화면",
-            "title": "주요 화면 02",
-            "description": "스크린샷마다 서로 다른 기술적인 설명을 작성할 수 있습니다."
-          },
-          {
-            "image": "",
-            "alt": "프로젝트 이름 01 세 번째 화면",
-            "title": "주요 화면 03",
-            "description": "캐러셀의 이전·다음 버튼이나 스와이프로 화면을 이동할 수 있습니다."
-          }
-        ]
-      }
-    },
-    {
       "id": "smoking-map",
       "name": "피고갈래",
       "summary": "공공데이터 + 유저 제보 기반으로 흡연 가능 구역을 지도에 표시하는 서비스",
