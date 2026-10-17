@@ -156,8 +156,10 @@ font-family: 'NanumSquareAcr'; */
 
 /* 헤더 높이(3.75rem)만큼 앵커 이동 지점을 내려 고정 헤더에 가려지지 않게 한다. */
 html {
+  --header-height: 3.75rem;
   scroll-behavior: smooth;
-  scroll-padding-top: 3.75rem;
+  scroll-padding-top: var(--header-height);
+  scroll-snap-type: y mandatory;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -167,11 +169,14 @@ html {
 }
 
 /*
- * 섹션 전환 판정은 useSectionSnap이 담당한다. CSS scroll-snap은 임계값을 지정할 수
- * 없어(mandatory는 항상 가장 가까운 지점 기준) 여기서는 높이만 정의한다.
+ * 제목이 아닌 섹션 전체를 스냅 영역으로 잡는다. 화면보다 긴 섹션은 내부를 자유롭게
+ * 스크롤하고 경계를 벗어날 때 정렬한다. 고정 높이나 별도 내부 스크롤을 만들지 않는다.
+ * 전환 임계값과 관성 처리는 브라우저가 담당한다.
  */
 .snap-section {
-  min-height: calc(100dvh - 3.75rem);
+  min-height: calc(100dvh - var(--header-height));
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .project-screenshot-swiper {
