@@ -115,10 +115,12 @@ function App() {
         <Careers />
         <Skills />
         <Projects />
-        <div id="contact" className="snap-section flex w-full flex-col">
+        <div id="contact" className="snap-section surface-night flex w-full flex-col">
           <Contact />
-          <footer className="flex h-10 w-full shrink-0 items-center justify-center bg-black">
-            <p className="text-xs text-white">© 2026 Min's Portfolio. All Rights Reserved.</p>
+          <footer className="flex min-h-14 w-full shrink-0 items-center justify-center border-t border-white/10 px-5 py-4">
+            <p className="text-xs leading-5 text-slate-400">
+              © 2026 Min's Portfolio. All Rights Reserved.
+            </p>
           </footer>
         </div>
       </main>
