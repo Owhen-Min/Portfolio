@@ -157,9 +157,10 @@ font-family: 'NanumSquareAcr'; */
 /* 헤더 높이(3.75rem)만큼 앵커 이동 지점을 내려 고정 헤더에 가려지지 않게 한다. */
 html {
   --header-height: 3.75rem;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: var(--header-height);
-  scroll-snap-type: y mandatory;
+  /* 경계 판정과 이동은 useSectionSnap에서 처리한다. */
+  scroll-snap-type: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -169,14 +170,11 @@ html {
 }
 
 /*
- * 제목이 아닌 섹션 전체를 스냅 영역으로 잡는다. 화면보다 긴 섹션은 내부를 자유롭게
- * 스크롤하고 경계를 벗어날 때 정렬한다. 고정 높이나 별도 내부 스크롤을 만들지 않는다.
- * 전환 임계값과 관성 처리는 브라우저가 담당한다.
+ * 긴 섹션은 콘텐츠만큼 늘어나며 문서 스크롤로 끝까지 읽을 수 있다.
+ * JS가 각 섹션의 상단과 하단을 따로 계산하므로 높이를 고정하지 않는다.
  */
 .snap-section {
   min-height: calc(100dvh - var(--header-height));
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 .project-screenshot-swiper {

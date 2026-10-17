@@ -6,6 +6,7 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
 import { Introduction, AboutMe, Careers, Projects, Skills, Contact } from "./components";
+import useSectionSnap from "./hooks/useSectionSnap";
 
 const sectionIds = ["introduction", "about-me", "careers", "skills", "projects", "contact"];
 
@@ -20,6 +21,7 @@ const navItems = [
 function App() {
   const [activeSection, setActiveSection] = useState(sectionIds[0]);
   const [isOpen, setIsOpen] = useState(false);
+  const handleNavigation = useSectionSnap(sectionIds);
 
   useEffect(() => {
     // 뷰포트 중앙선을 지나는 섹션 하나만 활성으로 잡아, 화면보다 긴 섹션도 동일하게 처리한다.
@@ -41,11 +43,6 @@ function App() {
 
     return () => observer.disconnect();
   }, []);
-
-  const handleNavigation = (id: string) => {
-    // CSS의 scroll-behavior를 사용해 모션 감소 설정도 존중한다.
-    document.getElementById(id)?.scrollIntoView({ block: "start" });
-  };
 
   return (
     <Theme>
