@@ -1,6 +1,66 @@
 {
   "projects": [
     {
+      "id": "memozy",
+      "name": "Memozy",
+      "summary": "웹 콘텐츠를 아카이빙하고 요약, 퀴즈로 복습하는 서비스",
+      "thumbnail": "/Portfolio/projects/Memozy/01_thumbnail.png",
+      "thumbnailAlt": "Memozy 대표 이미지",
+      "featuredTechStack": [
+        { "name": "React", "icon": "react" },
+        { "name": "TypeScript", "icon": "typescript" },
+        { "name": "WebSocket", "icon": "websocket" },
+        { "name": "Zustand", "icon": "zustand" }
+      ],
+      "teamSize": 6,
+      "duration": "25.4 ~ 25.5",
+      "award": "SSAFY 프로젝트 전시발표회 전시부문 입상",
+      "details": {
+        "heroImage": "/Portfolio/projects/Memozy/02_thumbnail.png",
+        "heroAlt": "Memozy 썸네일",
+        "role": "프론트엔드 리드, 크롬 익스텐션 및 실시간 멀티 퀴즈쇼 담당, 발표자",
+        "platform": "반응형 웹",
+        "features": [
+          "웹페이지에서 원하는 내용을 크롬 익스텐션을 통해 아카이빙합니다.",
+          "아카이빙한 내용을 기반으로 지식을 요약하고, 문제를 생성합니다.",
+          "저장한 내용을 바탕으로 생성된 문제를 풀고, 피드백을 받습니다.",
+          "저장한 내용을 공유하고 함께 문제를 풀 수 있습니다."
+        ],
+        "techStack": [
+          { "name": "React", "icon": "react" },
+          { "name": "React Query", "icon": "reactquery" },
+          { "name": "Tailwind CSS", "icon": "tailwind" },
+          { "name": "WebSocket", "icon": "websocket" },
+          { "name": "Zustand", "icon": "zustand" }
+        ],
+        "description": "개발하는 과정에서 찾아본 뒤 다시 활용하지 못하는 정보들이 많아, 정리하여 공부하고 싶은 마음에서 시작한 프로젝트입니다. 아카이빙을 담당하는 크롬 익스텐션과 아카이빙한 내용들을 다같이 푸는 멀티 퀴즈쇼를 담당하여 개발하였습니다.",
+        "links": {
+          "github": "https://github.com/Owhen-Min/Memozy",
+          "demo": ""
+        },
+        "screenshots": [
+          {
+            "image": "/Portfolio/projects/Memozy/image.png",
+            "alt": "Memozy 익스텐션 첫번째 화면",
+            "title": "익스텐션",
+            "description": "크롬 익스텐션을 통해 내용을 아카이빙합니다. 휴리스틱 기반 엔진으로 주요 내용만 추출하여, Markdown으로 변환함으로써 원본 HTML에 비해 입력 토큰수를 평균 85% 줄이고, 비용을 절감하고 응답 시간을 단축했습니다."
+          },
+          {
+            "image": "/Portfolio/projects/Memozy/image3.png",
+            "alt": "Memozy 웹 멀티 퀴즈쇼 첫 번째 화면",
+            "title": "멀티 퀴즈쇼 대기화면",
+            "description": "웹소켓 기반의 다중 사용자 접속을 구현하였습니다. 기획 단계에서 단독 퀴즈쇼 컴포넌트를 활용하기로 하여 시간을 절감할 수 있었습니다. 하나의 서버에 30개의 클라이언트를 동시에 연결하여 참여자 목록 갱신 및 퀴즈 시작, 문제 전환 등의 동시접속 테스트를 진행했습니다. 각 기능이 정상적으로 작동하는 것을 확인했습니다."
+          },
+          {
+            "image": "/Portfolio/projects/Memozy/image4.png",
+            "alt": "Memozy 웹 멀티 퀴즈쇼 두 번째 화면",
+            "title": "멀티 퀴즈쇼 퀴즈 화면",
+            "description": "문제를 푸는 과정에서 네트워크 환경이 안 좋아질 수 있는 것을 염두에 두고, Zustand 및 Zustand Persist 미들웨어를 활용하여 접속 중단 후 복구 프로세스를 마련해뒀습니다."
+          }
+        ]
+      }
+    },
+    {
       "id": "smoking-map",
       "name": "피고갈래",
       "summary": "공공데이터 + 유저 제보 기반으로 흡연 가능 구역을 지도에 표시하는 서비스",
@@ -17,13 +77,13 @@
       "details": {
         "heroImage": "",
         "heroAlt": "프로젝트 이름 02 상세 대표 이미지",
-        "role": "프론트엔드 개발 및 UI 설계",
+        "role": "풀스텍 개발 및 UI 설계",
         "platform": "웹",
         "features": ["주요 기능 01", "주요 기능 02"],
         "techStack": [
           { "name": "Next.js", "icon": "nextjs" },
           { "name": "TypeScript", "icon": "typescript" },
-          { "name": "Database", "icon": "database" }
+          { "name": "Firebase", "icon": "database" }
         ],
         "description": "프로젝트의 상세한 개요를 작성하는 영역입니다. 여러 문장으로 작성해도 모달 내부에서 자연스럽게 표시됩니다.",
         "links": {
@@ -46,71 +106,11 @@
         ]
       }
     },
-    {
-      "id": "memozy",
-      "name": "Memozy",
-      "summary": "방대한 정보를 요약하고, 문제로 풀며 지식을 효과적으로 학습하고 정리하는 플랫폼",
-      "thumbnail": "/Portfolio/projects/Memozy/01_thumbnail.png",
-      "thumbnailAlt": "Memozy 대표 이미지",
-      "featuredTechStack": [
-        { "name": "React", "icon": "react" },
-        { "name": "TypeScript", "icon": "typescript" },
-        { "name": "WebSocket", "icon": "websocket" },
-        { "name": "Zustand", "icon": "zustand" }
-      ],
-      "teamSize": 6,
-      "duration": "25.4 ~ 25.5",
-      "award": "SSAFY 프로젝트 전시발표회 전시부문 입상",
-      "details": {
-        "heroImage": "/Portfolio/projects/Memozy/02_thumbnail.png",
-        "heroAlt": "Memozy 썸네일",
-        "role": "프론트엔드 리드, 프론트엔드 개발, 발표자",
-        "platform": "반응형 웹",
-        "features": [
-          "유저가 웹페이지에서 원하는 내용을 크롬 익스텐션을 통해 아카이빙합니다.",
-          "유저는 아카이빙한 내용을 기반으로 지식을 요약하고, 문제를 생성합니다.",
-          "유저는 자신이 원하는 지식에 대한 문제를 풀고, 피드백을 받습니다.",
-          "유저는 자신이 저장한 내용을 공유 후 함께 문제를 풀 수 있습니다."
-        ],
-        "techStack": [
-          { "name": "React", "icon": "react" },
-          { "name": "React Query", "icon": "reactquery" },
-          { "name": "Tailwind CSS", "icon": "tailwind" },
-          { "name": "WebSocket", "icon": "websocket" },
-          { "name": "Zustand", "icon": "zustand" },
-          { "name": "Spring Boot", "icon": "springboot" }
-        ],
-        "description": "개발하는 과정에서 한번 찾아보고 휘발되는 내용들이 많아, 정리하여 공부하고 싶은 마음에서 시작한 프로젝트입니다. 아카이빙을 담당하는 크롬 익스텐션과 아카이빙한 내용들을 다같이 푸는 멀티 퀴즈쇼를 담당하여 개발하였습니다.",
-        "links": {
-          "github": "https://github.com/Owhen-Min/Memozy",
-          "demo": ""
-        },
-        "screenshots": [
-          {
-            "image": "/Portfolio/projects/Memozy/image.png",
-            "alt": "Memozy 익스텐션 첫번째 화면",
-            "title": "익스텐션",
-            "description": "크롬 익스텐션을 통해 내용을 아카이빙합니다. 휴리스틱 기반 엔진으로 주요 내용만 추출하여, Markdown으로 변환함으로써 평균 95%의 토큰양을 줄이고, 비용을 절감하면서 응답속도를 늘렸습니다."
-          },
-          {
-            "image": "/Portfolio/projects/Memozy/image3.png",
-            "alt": "Memozy 웹 멀티퀴즈쇼 첫 번째 화면",
-            "title": "멀티퀴즈쇼 대기화면",
-            "description": "웹소켓 기반의 다중 사용자 접속을 구현하였습니다. 기획 단계에서 단독 퀴즈쇼 컴포넌트를 활용하기로 하여 시간을 절감할 수 있었으며, 하나의 서버에 30개의 접속을 활성화하여 부하테스트를 진행하였으나, 정상적으로 진행되는 것을 확인했습니다."
-          },
-          {
-            "image": "/Portfolio/projects/Memozy/image4.png",
-            "alt": "Memozy 웹 멀티퀴즈쇼 두 번째 화면",
-            "title": "멀티퀴즈쇼 퀴즈 화면",
-            "description": "문제를 푸는 과정에서 네트워크 환경이 안 좋아질 수 있는 것을 항상 염두해두며, Zustand 및 Zustand Persist 미들웨어를 활용하여 상태를 관리하였습니다."
-          }
-        ]
-      }
-    },
+
     {
       "id": "MusicNote",
       "name": "MusicNote",
-      "summary": "듣는 음악을 기반으로 사용자의 성향을 분석하고, 성향에 맞는 작품을 추천하는 서비스",
+      "summary": "듣는 음악을 기반으로 사용자의 성격을 분석하고, 성격에 맞는 작품을 추천하는 서비스",
       "thumbnail": "/Portfolio/projects/MusicNote/01_thumbnail.png",
       "thumbnailAlt": "MusicNote 대표 이미지",
       "featuredTechStack": [
@@ -122,20 +122,23 @@
         { "name": "Chart.js", "icon": "chartjs" }
       ],
       "teamSize": 6,
-      "duration": "25.4 ~ 25.5",
+      "duration": "25.3 ~ 25.4",
       "award": "SSAFY 특화 프로젝트 우수상",
       "details": {
         "heroImage": "/Portfolio/projects/MusicNote/02_heroimage.png",
-        "heroAlt": "프로젝트 이름 02 상세 대표 이미지",
+        "heroAlt": "MusicNote 상세 이미지",
         "role": "프론트엔드 개발 및 UI 설계",
         "platform": "웹",
-        "features": ["주요 기능 01", "주요 기능 02"],
+        "features": ["스포티파이에서 들은 음악 리스트를 주기적으로 아카이빙합니다.", "아카이빙한 음악을 기반으로 성격을 추정합니다.", "음악으로 추정한 성격의 분석 자료를 제공합니다.", "추정한 성격에 어울리는 콘텐츠를 추천합니다."],
         "techStack": [
-          { "name": "Next.js", "icon": "nextjs" },
+          { "name": "React", "icon": "react" },
           { "name": "TypeScript", "icon": "typescript" },
-          { "name": "Database", "icon": "database" }
+          { "name": "React Query", "icon": "reactquery" },
+          { "name": "Tailwind CSS", "icon": "tailwind" },
+          { "name": "Zustand", "icon": "zustand" },
+          { "name": "Chart.js", "icon": "chartjs" }
         ],
-        "description": "프로젝트의 상세한 개요를 작성하는 영역입니다. 여러 문장으로 작성해도 모달 내부에서 자연스럽게 표시됩니다.",
+        "description": "별도 설문 없이 음악 감상 기록으로 자신을 탐색하는 프로젝트입니다. 홈 화면, 추천 콘텐츠, 성격 그래프 조회, Server-Sent Events(SSE) 수신 및 반영 기능 개발을 담당했습니다.",
         "links": {
           "github": "https://github.com/Owhen-Min/MusicNote",
           "demo": ""
@@ -143,21 +146,21 @@
         "screenshots": [
           {
             "image": "/Portfolio/projects/MusicNote/03_image.png",
-            "alt": "프로젝트 이름 02 첫 번째 화면",
-            "title": "기능 화면 01",
-            "description": "첫 번째 화면에 관한 기술적인 설명을 작성합니다."
+            "alt": "MusicNote 홈 화면",
+            "title": "홈 화면",
+            "description": "재방문 동기를 제공하는 화면. 오늘의 메시지 → 성격 분석 결과 → 분석 근거가 된 최근 감상 기록 내용을 제공합니다. SSE로 분석 완료 이벤트를 수신한 뒤 최신 결과를 조회해 가장 최근의 분석 결과를 반영합니다."
           },
           {
             "image": "/Portfolio/projects/MusicNote/04_image.png",
-            "alt": "프로젝트 이름 02 두 번째 화면",
-            "title": "기능 화면 02",
-            "description": "두 번째 화면에 관한 별도의 설명을 작성합니다."
+            "alt": "MusicNote 추천 화면",
+            "title": "콘텐츠 추천 화면",
+            "description": "추천 콘텐츠에 대한 사용자 피드백을 받는 화면. 터치, 버튼 등의 다양한 인터랙션을 제공. 단순 터치는 정보 제공, 좌우로 스와이프의 경우 선호·비선호로 인지하기 위해 커스텀 터치 핸들러를 제작하였습니다."
           },
           {
             "image": "/Portfolio/projects/MusicNote/05_image.png",
-            "alt": "프로젝트 이름 02 두 번째 화면",
-            "title": "기능 화면 02",
-            "description": "두 번째 화면에 관한 별도의 설명을 작성합니다."
+            "alt": "MusicNote 추천 화면-영화설명",
+            "title": "콘텐츠 추천 화면-설명화면",
+            "description": "썸네일로 단순 판단을 하는 것이 아닌, 장르와 줄거리 정보를 제공해 사용자가 추천 콘텐츠에 대한 선호를 판단하기 쉽도록 했습니다."
           }
         ]
       }
