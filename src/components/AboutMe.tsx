@@ -10,6 +10,13 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 
+interface Activity {
+  key: string;
+  title: string;
+  period: string;
+  description: string;
+}
+
 export default function AboutMe() {
   return (
     <section id="about-me" className="surface-paper snap-section section-layout">
@@ -76,7 +83,7 @@ export default function AboutMe() {
             resistance={true}
             resistanceRatio={0.85}
           >
-            {activities.map((activity: any) => (
+            {activities.map((activity: Activity) => (
               <SwiperSlide key={activity.key}>
                 <Tooltip>
                   <TooltipTrigger className="w-full">
