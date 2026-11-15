@@ -42,23 +42,17 @@ function Tooltip({ children, ...props }: React.ComponentProps<typeof TooltipPrim
 
   // Trigger에 onTouchStart를 주입하기 위해 children을 순회
   const enhancedChildren = React.Children.map(children, (child) => {
-    if (React.isValidElement(child) && (child.type as any).displayName === "TooltipTrigger") {
+    if (
+      React.isValidElement<React.ComponentProps<typeof TooltipPrimitive.Trigger>>(child) &&
+      child.type === TooltipTrigger
+    ) {
       // 터치 환경에서만 onTouchStart 추가
-      const onTouchStart = (e: any) => {
+      const onTouchStart: React.TouchEventHandler<HTMLButtonElement> = (e) => {
         e.stopPropagation();
         setOpen((prev) => !prev);
-        const childProps = child.props as React.ComponentProps<typeof TooltipPrimitive.Trigger>;
-        if (childProps.onTouchStart) childProps.onTouchStart(e);
+        child.props.onTouchStart?.(e);
       };
-      let newProps = child.props;
-      if (isTouch.current) {
-        if (child.props && typeof child.props === "object") {
-          newProps = { ...child.props, onTouchStart };
-        } else {
-          newProps = { onTouchStart };
-        }
-      }
-      return React.cloneElement(child, newProps as any);
+      return isTouch.current ? React.cloneElement(child, { onTouchStart }) : child;
     }
     return child;
   });
