@@ -32,6 +32,22 @@ export default function useSectionSnap(sectionIds: string[]) {
       });
     };
 
+    const writeSection = (id: string) => {
+      if (window.location.hash === `#${id}`) return;
+      const url = new URL(window.location.href);
+      url.hash = id;
+      // 현재 방문 항목만 갱신해 섹션 이동이 뒤로 가기 기록에 쌓이지 않게 한다.
+      window.history.replaceState(window.history.state, "", url);
+    };
+    const saveVisibleSection = () => {
+      const center = headerHeight() + (window.innerHeight - headerHeight()) / 2;
+      const id = sectionIds.find((id) => {
+        const rect = document.getElementById(id)?.getBoundingClientRect();
+        return rect && rect.top <= center && rect.bottom > center;
+      });
+      if (id) writeSection(id);
+    };
+
     const cancel = () => {
       clearTimeout(timer);
       if (frame !== undefined) cancelAnimationFrame(frame);
@@ -79,11 +95,17 @@ export default function useSectionSnap(sectionIds: string[]) {
         measure(),
         window.innerHeight - headerHeight()
       );
-      if (target !== null) animateTo(target);
+      if (target !== null) {
+        animateTo(target);
+        schedule();
+      } else saveVisibleSection();
     };
     const schedule = () => {
       clearTimeout(timer);
-      timer = setTimeout(settle, SETTLE_DELAY);
+      timer = setTimeout(() => {
+        if (animating) schedule();
+        else settle();
+      }, SETTLE_DELAY);
     };
     const onScroll = () => {
       if (animating || isLocked()) return;
@@ -137,17 +159,34 @@ export default function useSectionSnap(sectionIds: string[]) {
       cancel();
     };
 
-    navigateRef.current = (id) => {
+    const navigate = (id: string, instant = false) => {
+      if (!sectionIds.includes(id)) return;
       const element = document.getElementById(id);
       if (!element) return;
       const maxY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-      animateTo(
-        Math.max(
-          0,
-          Math.min(maxY, element.getBoundingClientRect().top + window.scrollY - headerHeight())
-        )
+      const target = Math.max(
+        0,
+        Math.min(maxY, element.getBoundingClientRect().top + window.scrollY - headerHeight())
       );
+      if (instant) {
+        cancel();
+        window.scrollTo({ top: target, behavior: "instant" });
+        originY = window.scrollY;
+      } else animateTo(target);
     };
+    navigateRef.current = (id) => {
+      if (!sectionIds.includes(id)) return;
+      writeSection(id);
+      navigate(id);
+    };
+
+    const restoreSection = () => {
+      const id = window.location.hash.slice(1) || sectionIds[0];
+      if (id) navigate(id, true);
+    };
+    const previousRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    restoreSection();
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("wheel", onWheel, { passive: true });
@@ -164,6 +203,7 @@ export default function useSectionSnap(sectionIds: string[]) {
     return () => {
       cancel();
       navigateRef.current = () => {};
+      window.history.scrollRestoration = previousRestoration;
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("touchstart", onTouchStart);
