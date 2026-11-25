@@ -1,15 +1,9 @@
 import { useEffect, useId, useRef, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { ExternalLink, Github, X } from "lucide-react";
-import { A11y, Keyboard, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 import type { Project } from "../../types/project";
 
-import ProjectImage from "./ProjectImage";
 import TechBadge from "./TechBadge";
 
 interface ProjectModalProps {
@@ -40,7 +34,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
       const focusableElements = Array.from(
         dialogRef.current.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          'a[href], summary, button:not([disabled]), [tabindex]:not([tabindex="-1"])'
         )
       );
       const firstElement = focusableElements[0];
@@ -82,13 +76,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         className="relative flex h-[90dvh] w-[90vw] flex-col overflow-hidden rounded-2xl bg-white text-left shadow-2xl"
       >
         <div className="sticky top-0 z-20 flex shrink-0 items-center justify-between border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur sm:px-7 sm:py-4">
-          <div className="min-w-0">
-            <p className="text-xs font-semibold tracking-[0.18em] text-blue-600 uppercase">
-              Project
-            </p>
+          <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1">
             <h2 id={titleId} className="truncate text-xl font-bold text-slate-900 sm:text-2xl">
               {project.name}
             </h2>
+            {project.details.links.github && (
+              <ProjectLink href={project.details.links.github} label="GitHub"><Github aria-hidden="true" className="size-4" /></ProjectLink>
+            )}
+            {project.details.links.demo && (
+              <ProjectLink href={project.details.links.demo} label="배포 사이트"><ExternalLink aria-hidden="true" className="size-4" /></ProjectLink>
+            )}
           </div>
           <button
             ref={closeButtonRef}
@@ -102,147 +99,44 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         <div className="project-modal-scroll flex-1 overflow-y-auto overscroll-contain">
-          <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-8 sm:py-10 lg:px-12">
-            <div className="flex flex-col md:gap-20 lg:grid lg:grid-cols-[auto_minmax(0,1fr)] lg:items-stretch">
-              <div className="project-hero-thumb relative aspect-square w-full overflow-hidden rounded-xl border border-slate-200 sm:rounded-2xl">
-                <div className="absolute inset-0">
-                  <ProjectImage
-                    src={project.details.heroImage}
-                    alt={project.details.heroAlt}
-                    label="프로젝트 상세 대표 이미지"
-                  />
-                </div>
-              </div>
-
-              <section aria-label="프로젝트 스펙" className="mt-10 min-w-0 flex-1 lg:mt-0">
-                <dl className="overflow-hidden rounded-xl border border-slate-200">
-                  <SpecItem term="진행 기간" description={project.duration} />
-                  <SpecItem term="참여 인원" description={`${project.teamSize}인`} />
-                  <SpecItem term="담당 역할" description={project.details.role} />
-                  <SpecItem term="플랫폼" description={project.details.platform} />
-                </dl>
-                {/* 상세 기술 스택 */}
-                <div className="mt-6">
-                  <h4 className="text-sm font-bold tracking-wide text-slate-500 uppercase">
-                    Tech Stack
-                  </h4>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {project.details.techStack.map((tech) => (
-                      <TechBadge key={`${project.id}-detail-${tech.name}`} tech={tech} />
-                    ))}
-                  </div>
-                </div>
-                {/* 프로젝트 링크 */}
-                {(project.details.links.github || project.details.links.demo) && (
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    {project.details.links.github && (
-                      <ProjectLink href={project.details.links.github} label="GitHub">
-                        <Github aria-hidden="true" className="size-4" />
-                      </ProjectLink>
-                    )}
-                    {project.details.links.demo && (
-                      <ProjectLink href={project.details.links.demo} label="배포 사이트">
-                        <ExternalLink aria-hidden="true" className="size-4" />
-                      </ProjectLink>
-                    )}
-                  </div>
-                )}
-              </section>
-            </div>
-
-            <section aria-label="프로젝트 상세 정보" className="pt-10">
-              <div className="mt-6">
-                <h4 className="text-sm font-bold tracking-wide text-slate-500 uppercase">
-                  주요 기능
-                </h4>
-                <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-700 sm:grid-cols-2">
-                  {project.details.features.map((feature) => (
-                    <li key={feature} className="flex gap-2">
-                      <span
-                        aria-hidden="true"
-                        className="mt-2 size-1.5 shrink-0 rounded-full bg-blue-500"
-                      />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-
-            <section aria-labelledby={`${titleId}-overview`} className="mt-12">
-              <h3
-                id={`${titleId}-overview`}
-                className="text-xl font-bold text-slate-900 sm:text-2xl"
-              >
-                프로젝트 개요
-              </h3>
-              <p
-                id={descriptionId}
-                className="mt-4 text-sm leading-7 whitespace-pre-line text-slate-700 sm:text-base sm:leading-8"
-              >
-                {project.details.description}
+          <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-8 sm:py-6 lg:px-12">
+            <section aria-label="프로젝트 요약" className="space-y-2">
+              <p id={descriptionId} className="text-base leading-relaxed text-slate-700">{project.summary}</p>
+              <p className="font-semibold text-slate-900">{project.details.role}</p>
+              <p className="text-sm text-slate-600">
+                {project.teamSize}인 · {project.duration} · {project.details.platform}
               </p>
+              <div className="flex flex-wrap items-center gap-1.5">
+                {project.details.techStack.map((tech) => <TechBadge key={tech.name} tech={tech} compact />)}
+              </div>
+
             </section>
 
-            <section aria-labelledby={`${titleId}-screenshots`} className="mt-12 pb-5">
-              <h3
-                id={`${titleId}-screenshots`}
-                className="text-xl font-bold text-slate-900 sm:text-2xl"
-              >
-                주요 개발 내용 및 화면
-              </h3>
-
-              <Swiper
-                key={project.id}
-                className="project-screenshot-swiper mt-1 rounded-xl border border-slate-200 bg-slate-50 sm:rounded-2xl"
-                modules={[A11y, Keyboard, Navigation, Pagination]}
-                navigation
-                pagination={{ clickable: true }}
-                keyboard={{ enabled: true }}
-                spaceBetween={24}
-                slidesPerView={1}
-                grabCursor
-              >
-                {project.details.screenshots.map((screenshot, index) => (
-                  <SwiperSlide key={`${project.id}-screenshot-${index}`}>
+            {project.details.screenshots.length > 0 && (
+              <section aria-label="주요 개발 내용" className="mt-6">
+                {project.details.screenshots.map((screen) => (
+                  <article key={screen.title} className="mt-4 grid gap-4 border-t border-slate-200 pt-5 md:grid-cols-[2fr_3fr] md:gap-8">
                     <div>
-                      <div className="min-h-16 bg-white px-5 pt-5 sm:min-h-20 sm:px-8 sm:pt-7">
-                        <p className="text-xs font-semibold tracking-widest text-blue-600 uppercase">
-                          Screen {String(index + 1).padStart(2, "0")}
-                        </p>
-                        <h4 className="mt-1 text-lg font-bold text-slate-900 sm:text-xl">
-                          {screenshot.title}
-                        </h4>
-                        <p className="mt-2 text-sm leading-6 text-slate-600 sm:text-base">
-                          {screenshot.description}
-                        </p>
-                      </div>
-                      <div className="aspect-[16/9] overflow-hidden border-b border-slate-200 bg-white">
-                        <ProjectImage
-                          src={screenshot.image}
-                          alt={screenshot.alt}
-                          label={`스크린샷 ${index + 1}`}
-                        />
-                      </div>
+                      <h3 className="text-lg font-bold leading-snug break-keep text-slate-900 sm:text-xl">{screen.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-slate-700">{screen.description}</p>
                     </div>
-                  </SwiperSlide>
+                    {screen.image && <img src={screen.image} alt={screen.alt} loading="lazy" className="max-h-[65dvh] w-full rounded-lg bg-slate-50 object-contain" />}
+                  </article>
                 ))}
-              </Swiper>
-            </section>
+              </section>
+            )}
+            <details className="mt-8 border-t border-slate-200 pt-4 text-sm leading-7 text-slate-700">
+              <summary className="cursor-pointer font-semibold">프로젝트 개요 및 주요 기능</summary>
+              <p className="mt-3">{project.details.description}</p>
+              <ul className="mt-2 list-disc pl-5">
+                {project.details.features.map((feature) => <li key={feature}>{feature}</li>)}
+              </ul>
+            </details>
           </div>
         </div>
       </div>
     </div>,
     document.body
-  );
-}
-
-function SpecItem({ term, description }: { term: string; description: string }) {
-  return (
-    <div className="border-b border-slate-200 p-4 last:border-b-0 sm:p-5">
-      <dt className="text-xs font-bold tracking-wide text-slate-500 uppercase">{term}</dt>
-      <dd className="mt-1 text-sm font-semibold text-slate-900 sm:text-base">{description}</dd>
-    </div>
   );
 }
 
@@ -260,7 +154,7 @@ function ProjectLink({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+      className="inline-flex items-center gap-1.5 py-1 text-sm font-medium text-slate-600 transition hover:text-blue-700 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
     >
       {children}
       {label}

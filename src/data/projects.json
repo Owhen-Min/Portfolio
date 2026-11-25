@@ -42,19 +42,19 @@
           {
             "image": "/Portfolio/projects/Memozy/image.png",
             "alt": "Memozy 익스텐션 첫번째 화면",
-            "title": "익스텐션",
-            "description": "크롬 익스텐션을 통해 내용을 아카이빙합니다. 휴리스틱 기반 엔진으로 주요 내용만 추출하여, Markdown으로 변환함으로써 원본 HTML에 비해 입력 토큰수를 평균 85% 줄이고, 비용을 절감하고 응답 시간을 단축했습니다."
+            "title": "본문 추출로 AI 입력 토큰 평균 85% 절감",
+            "description": "퀴즈 생성에 필요한 본문을 휴리스틱 기반 엔진으로 추출해 Markdown으로 변환했습니다. 원본 HTML 전체를 입력했을 때와 비교해 입력량을 줄이고, 생성 비용과 응답 시간을 낮췄습니다."
           },
           {
             "image": "/Portfolio/projects/Memozy/image3.png",
             "alt": "Memozy 웹 멀티 퀴즈쇼 첫 번째 화면",
-            "title": "멀티 퀴즈쇼 대기화면",
+            "title": "30개 클라이언트로 실시간 퀴즈 진행 검증",
             "description": "웹소켓 기반의 다중 사용자 접속을 구현하였습니다. 기획 단계에서 단독 퀴즈쇼 컴포넌트를 활용하기로 하여 시간을 절감할 수 있었습니다. 하나의 서버에 30개의 클라이언트를 동시에 연결하여 참여자 목록 갱신 및 퀴즈 시작, 문제 전환 등의 동시접속 테스트를 진행했습니다. 각 기능이 정상적으로 작동하는 것을 확인했습니다."
           },
           {
             "image": "/Portfolio/projects/Memozy/image4.png",
             "alt": "Memozy 웹 멀티 퀴즈쇼 두 번째 화면",
-            "title": "멀티 퀴즈쇼 퀴즈 화면",
+            "title": "접속 중단 후 퀴즈 상태 복구",
             "description": "문제를 푸는 과정에서 네트워크 환경이 안 좋아질 수 있는 것을 염두에 두고, Zustand 및 Zustand Persist 미들웨어를 활용하여 접속 중단 후 복구 프로세스를 마련해뒀습니다."
           }
         ]
@@ -79,31 +79,18 @@
         "heroAlt": "프로젝트 이름 02 상세 대표 이미지",
         "role": "풀스텍 개발 및 UI 설계",
         "platform": "웹",
-        "features": ["주요 기능 01", "주요 기능 02"],
+        "features": [],
         "techStack": [
           { "name": "Next.js", "icon": "nextjs" },
           { "name": "TypeScript", "icon": "typescript" },
           { "name": "Firebase", "icon": "database" }
         ],
-        "description": "프로젝트의 상세한 개요를 작성하는 영역입니다. 여러 문장으로 작성해도 모달 내부에서 자연스럽게 표시됩니다.",
+        "description": "서울 지역 공공흡연장소 데이터를 활용하여 초기 데이터를 세팅하며, 제보 기반으로 흡연구역을 확인하는 서비스.",
         "links": {
           "github": "https://github.com/Owhen-Min/Smoking_Map",
           "demo": "https://smoking-map-delta.vercel.app/"
         },
-        "screenshots": [
-          {
-            "image": "",
-            "alt": "프로젝트 이름 02 첫 번째 화면",
-            "title": "기능 화면 01",
-            "description": "첫 번째 화면에 관한 기술적인 설명을 작성합니다."
-          },
-          {
-            "image": "",
-            "alt": "프로젝트 이름 02 두 번째 화면",
-            "title": "기능 화면 02",
-            "description": "두 번째 화면에 관한 별도의 설명을 작성합니다."
-          }
-        ]
+        "screenshots": []
       }
     },
 
@@ -147,19 +134,19 @@
           {
             "image": "/Portfolio/projects/MusicNote/03_image.png",
             "alt": "MusicNote 홈 화면",
-            "title": "홈 화면",
-            "description": "재방문 동기를 제공하는 화면. 오늘의 메시지 → 성격 분석 결과 → 분석 근거가 된 최근 감상 기록 내용을 제공합니다. SSE로 분석 완료 이벤트를 수신한 뒤 최신 결과를 조회해 가장 최근의 분석 결과를 반영합니다."
+            "title": "분석 완료 이벤트로 홈 화면 갱신",
+            "description": "오늘의 메시지와 성향 결과, 분석에 쓰인 최근 음악 3곡을 한 화면에 배치했습니다. 분석 근거는 버튼으로 열어보고, 새 분석이 끝나면 SSE 이벤트를 받아 최신 결과를 조회하도록 구현했습니다."
           },
           {
             "image": "/Portfolio/projects/MusicNote/04_image.png",
             "alt": "MusicNote 추천 화면",
-            "title": "콘텐츠 추천 화면",
+            "title": "탭과 스와이프로 작품 정보 조회와 선호 입력 구분",
             "description": "추천 콘텐츠에 대한 사용자 피드백을 받는 화면. 터치, 버튼 등의 다양한 인터랙션을 제공. 단순 터치는 정보 제공, 좌우로 스와이프의 경우 선호·비선호로 인지하기 위해 커스텀 터치 핸들러를 제작하였습니다."
           },
           {
             "image": "/Portfolio/projects/MusicNote/05_image.png",
             "alt": "MusicNote 추천 화면-영화설명",
-            "title": "콘텐츠 추천 화면-설명화면",
+            "title": "작품 선택에 필요한 장르와 줄거리 제공",
             "description": "썸네일로 단순 판단을 하는 것이 아닌, 장르와 줄거리 정보를 제공해 사용자가 추천 콘텐츠에 대한 선호를 판단하기 쉽도록 했습니다."
           }
         ]
