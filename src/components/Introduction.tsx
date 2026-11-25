@@ -16,25 +16,20 @@ export default function Introduction({ onNavigate }: IntroductionProps) {
       <div className="intro-overlay flex w-full items-center py-14 sm:py-20">
         <div className="portfolio-container text-start">
           <div className="max-w-3xl">
-            <p className="flex items-center gap-3 text-xs font-medium tracking-[0.16em] text-slate-600 sm:text-sm">
-              <span aria-hidden="true" className="h-px w-8 bg-blue-600" /> FRONTEND DEVELOPER
-            </p>
+            <div className="">
+              <p className="flex items-center gap-3 text-sm font-medium tracking-[0.16em] text-slate-600 sm:text-base">
+                <span aria-hidden="true" className="h-px w-8 bg-blue-600" /> FRONTEND DEVELOPER
+              </p>
+            </div>
+            <p className="mt-2 ml-10 text-2xl leading-8 font-bold text-slate-800 sm:text-3xl">민경현</p>
             <h2
               id="introduction-heading"
-              className="mt-6 text-[clamp(2rem,5vw,4.5rem)] leading-[1.25] font-bold tracking-tight break-keep text-slate-900"
+              className="mt-6 text-[clamp(2rem,5vw,4.5rem)] leading-[1.4] font-semibold tracking-tight break-keep text-slate-900"
             >
-              사람을 이해하고,
+              <strong className="text-blue-700">사람</strong>을 이해하고,
               <br />
-              <span className="text-blue-700">경험을 만듭니다.</span>
+              <strong className="text-blue-700">경험</strong>을 만듭니다.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-800 sm:text-xl">
-              프론트엔드 개발자 <span className="font-semibold">민경현</span>입니다.
-            </p>
-            <p className="mt-3 max-w-lg text-sm leading-7 break-keep text-slate-600 sm:text-base sm:leading-8">
-              기술에 사람에 대한 이해를 더하고,
-              <br className="hidden sm:block" />
-              동료와 함께 공동의 목표를 향해 나아갑니다.
-            </p>
             <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-5">
               <button
                 type="button"
