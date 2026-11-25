@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
+import { TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Root as TooltipRoot } from "@radix-ui/react-tooltip";
 
 import { techs } from "@/data/techStack.json";
 
@@ -8,6 +8,7 @@ interface TechStack {
   classification: string;
   name: string;
   level: number;
+  summary: string;
   description: string[];
 }
 
@@ -16,8 +17,10 @@ type GroupedTechs = Record<string, TechStack[]>;
 export default function Skills() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState(0);
-  const groupedTechs = (techs as TechStack[]).reduce<GroupedTechs>(
-    (acc, cur: TechStack) => {
+  const [openSkill, setOpenSkill] = useState<string | null>(null);
+  const skillEntries: TechStack[] = techs;
+  const groupedTechs = skillEntries.reduce<GroupedTechs>(
+    (acc, cur) => {
       (acc[cur.classification] ??= []).push(cur);
       return acc;
     },
@@ -30,6 +33,7 @@ export default function Skills() {
     if (!carousel) return;
     const slide = carousel.children[index] as HTMLElement;
     const firstSlide = carousel.children[0] as HTMLElement;
+    setOpenSkill(null);
     carousel.scrollTo({
       left: slide.offsetLeft - firstSlide.offsetLeft,
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -41,17 +45,7 @@ export default function Skills() {
   return (
     <section id="skills" className="snap-section section-layout surface-paper">
       <div className="portfolio-container section-stack">
-        <div className="flex items-center gap-2">
-          <h2 className="section-title">Skills</h2>
-          <Tooltip>
-            <TooltipTrigger>
-              <QuestionMarkCircledIcon className="h-[15px] w-[15px] sm:h-5 sm:w-5" />
-            </TooltipTrigger>
-            <TooltipContent className="max-w-[40vw] break-keep">
-              <p className="text-base">호버 시 설명이 나타납니다.</p>
-            </TooltipContent>
-          </Tooltip>
-        </div>
+        <h2 className="section-title">Skills</h2>
 
         <div className="section-group">
           <nav
@@ -95,7 +89,10 @@ export default function Skills() {
                   nearestIndex = index;
                 }
               });
-              setActiveCategory(nearestIndex);
+              if (nearestIndex !== activeCategory) {
+                setOpenSkill(null);
+                setActiveCategory(nearestIndex);
+              }
             }}
             className="relative flex w-full snap-x snap-mandatory items-start gap-4 overflow-x-auto overscroll-x-contain pb-3 [scrollbar-width:none] md:grid md:grid-cols-[repeat(2,minmax(0,12rem))] md:justify-start md:gap-x-12 md:gap-y-16 md:overflow-visible lg:grid-cols-[repeat(4,minmax(0,12rem))] xl:gap-x-18 [&::-webkit-scrollbar]:hidden"
           >
@@ -105,7 +102,7 @@ export default function Skills() {
                 id={`skills-category-${category}`}
                 className="w-full min-w-0 shrink-0 snap-start snap-always md:w-auto"
               >
-                <div className="section-group mx-auto w-full max-w-48 md:mx-0">
+                <div className="section-group mx-auto w-full max-w-64 md:mx-0">
                   <h3 className="section-subtitle">{category}</h3>
                   <div className="flex flex-col gap-4">
                     {techList.length === 0 && (
@@ -114,38 +111,55 @@ export default function Skills() {
                       </div>
                     )}
                     {techList.map((tech: TechStack) => (
-                      <Tooltip key={tech.name}>
-                        <TooltipTrigger asChild>
-                          <button
-                            type="button"
-                            className="w-full cursor-pointer rounded-lg bg-white p-4 text-left shadow transition hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500"
-                          >
-                            <p className="section-body text-slate-800">{tech.name}</p>
-                            <div className="mt-2 flex items-center gap-1">
-                              {[...Array(5)].map((_, i) => (
-                                <div
-                                  key={i}
-                                  className={`h-3 w-3 rounded-full ${
-                                    i < tech.level ? "bg-yellow-400" : "bg-gray-300"
-                                  }`}
-                                />
-                              ))}
-                            </div>
-                          </button>
-                        </TooltipTrigger>
-                        <TooltipContent
-                          side="bottom"
-                          align="start"
-                          sideOffset={8}
-                          collisionPadding={20}
+                      <TooltipProvider key={tech.name}>
+                        <TooltipRoot
+                          open={openSkill === tech.name}
+                          onOpenChange={(open) =>
+                            setOpenSkill((current) =>
+                              open ? tech.name : current === tech.name ? null : current,
+                            )
+                          }
                         >
-                          <ul className="max-w-[min(300px,calc(100vw-3rem))] list-disc space-y-2 pl-4 text-sm leading-7 font-normal break-keep md:max-w-[500px]">
-                            {tech.description.map((d: string, idx: number) => (
-                              <li key={idx}>{d}</li>
-                            ))}
-                          </ul>
-                        </TooltipContent>
-                      </Tooltip>
+                          <TooltipTrigger asChild>
+                            <button
+                              type="button"
+                              onClick={(event) => {
+                                event.preventDefault();
+                                setOpenSkill(tech.name);
+                              }}
+                              className="w-full cursor-pointer rounded-lg bg-white p-4 text-left shadow transition hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500"
+                            >
+                              <span className="section-body block font-semibold text-slate-800">{tech.name}</span>
+                              <span className="sr-only">숙련도 5점 중 {tech.level}점</span>
+                              <span aria-hidden="true" className="mt-2 flex items-center gap-1">
+                                {Array.from({ length: 5 }, (_, index) => (
+                                  <span
+                                    key={index}
+                                    className={`h-3 w-3 rounded-full ${
+                                      index < tech.level ? "bg-yellow-400" : "bg-gray-300"
+                                    }`}
+                                  />
+                                ))}
+                              </span>
+                              <span className="mt-2 block text-sm leading-relaxed break-keep text-slate-600">
+                                {tech.summary}
+                              </span>
+                            </button>
+                          </TooltipTrigger>
+                          <TooltipContent
+                            side="bottom"
+                            align="start"
+                            sideOffset={8}
+                            collisionPadding={20}
+                          >
+                            <ul className="max-w-[min(300px,calc(100vw-3rem))] list-disc space-y-2 pl-4 text-sm leading-7 font-normal break-keep md:max-w-[500px]">
+                              {tech.description.map((d: string, idx: number) => (
+                                <li key={idx}>{d}</li>
+                              ))}
+                            </ul>
+                          </TooltipContent>
+                        </TooltipRoot>
+                      </TooltipProvider>
                     ))}
                   </div>
                 </div>
